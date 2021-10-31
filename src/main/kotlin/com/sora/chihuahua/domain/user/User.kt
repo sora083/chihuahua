@@ -1,6 +1,5 @@
 package com.sora.chihuahua.domain.user
 
-import com.sora.chihuahua.domain.AuditEntity
 import com.sora.chihuahua.domain.dog.Dog
 import lombok.Data
 import org.springframework.data.annotation.CreatedDate
@@ -44,7 +43,7 @@ data class User(
     @NotNull
     var updatedDatetime: LocalDateTime = LocalDateTime.now()
 
-    fun addDogs(newDog: Dog) {
+    fun addDog(newDog: Dog) {
         this.dogs.add(newDog)
     }
 }

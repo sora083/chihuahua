@@ -20,7 +20,7 @@ class DogController(
     }
 
     @GetMapping
-    fun getUsers(
+    fun getDogs(
     ): MutableIterable<Dog> {
         return dogApplicationService.getDogs()
     }
