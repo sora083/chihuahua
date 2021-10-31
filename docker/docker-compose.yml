@@ -1,0 +1,16 @@
+version: '3.3'
+
+services:
+  db:
+    container_name: chihuahua-db
+    build:
+      context: ./chihuahua-db
+    ports:
+      - '23306:3306'
+    volumes:
+      #- test-db-data:/var/lib/mysql
+      - .:/chihuahua_db
+      #- .:/var/www/html
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      TZ: Asia/Tokyo
