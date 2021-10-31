@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: chihuahua
+  main:
+    banner-mode: "off"
+  datasource:
+    url: jdbc:mysql://localhost:23306/chihuahua?useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: mao
+    password: mao
+  flyway:
+    enabled: true
+    url: jdbc:mysql://localhost:23306/chihuahua?useSSL=false
+    user: mao
+    password: mao
+
+logging:
+  level:
+    org:
+      springframework:
+        jdbc:
+          core: TRACE
