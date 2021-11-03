@@ -4,13 +4,13 @@ spring:
   main:
     banner-mode: "off"
   datasource:
-    url: jdbc:mysql://localhost:23306/chihuahua?useSSL=false
+    url: jdbc:mysql://localhost:23306/chihuahua?allowPublicKeyRetrieval=true&useSSL=false
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: mao
     password: mao
   flyway:
     enabled: true
-    url: jdbc:mysql://localhost:23306/chihuahua?useSSL=false
+    url: jdbc:mysql://localhost:23306/chihuahua?allowPublicKeyRetrieval=true&useSSL=false
     user: mao
     password: mao
 
@@ -20,3 +20,7 @@ logging:
       springframework:
         jdbc:
           core: TRACE
+
+dog:
+  api:
+    root-url: https://dog.ceo/api
