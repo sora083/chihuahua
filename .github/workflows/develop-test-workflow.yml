@@ -49,6 +49,13 @@ jobs:
           docker container ls -a
           docker stop $(docker container ls -q)
 
+      - name: Upload Test Report
+        uses: actions/upload-artifact@v1
+        if: always()
+        with:
+          name: test results
+          path: build/test-results/test
+
       - name: Check result
         if: ${{ always() }}
         id: check
