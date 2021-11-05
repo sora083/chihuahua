@@ -26,7 +26,7 @@ internal class UserControllerTest {
             .andDo {
                 print()
             }.andExpect {
-                status { isNotFound() }
+                status { isOk() }
                 jsonPath("$.[0].userId") { exists() }
                 jsonPath("$.[0].userName") { exists() }
                 jsonPath("$.[0].hashPass") { exists() }
