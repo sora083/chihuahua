@@ -1,4 +1,4 @@
-name: development test workflow
+name: development lint & test workflow
 
 on:
   push:
@@ -17,11 +17,30 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: ktlint
-        uses: ScaCap/action-ktlint@master
+      - name: Setup Java
+        uses: actions/setup-java@v1
         with:
-          github_token: ${{ secrets.github_token }}
-          reporter: github-check
+          java-version: ${{ env.JDK_VERSION }}
+          java-package: jdk
+          architecture: x64
+
+      - name: Install ktlint
+        run: |
+          curl -sSLO https://github.com/pinterest/ktlint/releases/download/0.40.0/ktlint &&
+                      chmod a+x ktlint &&
+                      sudo mv ktlint /usr/local/bin/
+
+      - name: Setup reviewdog
+        uses: reviewdog/action-setup@v1
+        with:
+          reviewdog_version: latest
+
+      - name: Run reviewdog
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ env.GITHUB_PAT }}
+        run: |
+          ktlint --reporter=checkstyle "*/src/**/*.kt" \ |
+          reviewdog -f=checkstyle -reporter=github-check -runners=ktlint -fail-on-error
   unit-test:
     runs-on: ubuntu-latest
     outputs:
