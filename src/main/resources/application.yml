@@ -24,3 +24,6 @@ logging:
 dog:
   api:
     root-url: https://dog.ceo/api
+
+youtube:
+  api-key: ""

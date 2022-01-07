@@ -22,6 +22,7 @@ configurations {
 
 repositories {
     mavenCentral()
+    maven (url = "http://google-api-client-libraries.appspot.com/mavenrepo")
 }
 
 dependencies {
@@ -30,6 +31,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux:2.5.6")
     implementation("org.springframework.boot:spring-boot-starter-validation:2.5.6")
     implementation("org.springframework.boot:spring-boot-starter-actuator:2.5.6")
+    // OpenAPI
     implementation("io.springfox:springfox-boot-starter:3.0.0")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.0")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
@@ -37,6 +39,10 @@ dependencies {
     implementation("mysql:mysql-connector-java:8.0.25")
     implementation("org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4:1.16") // logging
     implementation("org.flywaydb:flyway-core:8.0.1")
+    // Youtube API
+    implementation("com.google.apis:google-api-services-youtube:v3-rev8-1.12.0-beta")
+    implementation("com.google.http-client:google-http-client-jackson2:1.12.0-beta")
+
     compileOnly("org.projectlombok:lombok:1.18.22")
     developmentOnly("org.springframework.boot:spring-boot-devtools:2.5.6")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor:2.5.6")

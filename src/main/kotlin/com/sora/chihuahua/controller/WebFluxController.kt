@@ -14,7 +14,7 @@ import java.util.stream.Stream
 @RestController
 @RequestMapping("/flux")
 @Api(tags = [SwaggerConfig.TAG_DEMO])
-class HelloController {
+class WebFluxController {
 
     @GetMapping
     @ApiOperation(value = "Get flux demo")

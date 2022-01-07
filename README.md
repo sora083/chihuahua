@@ -16,3 +16,8 @@ docker-compose up -d --build
 cd docker
 docker-compose down
 ```
+
+### YouTube search example
+```
+http://localhost:8080/youtube/search?query=english
+```
